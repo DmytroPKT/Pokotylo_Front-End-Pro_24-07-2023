@@ -52,8 +52,5 @@ if (!userSport || userSport === null) {
     userInfo += messageSport
 };
 
-if (userInfo === messageNoYear + messageNoPlace + messageNoSport) {
-    alert(messageNoData)
-} else {
-    alert(userInfo)
-};
+
+(userInfo === messageNoYear + messageNoPlace + messageNoSport) ? alert(messageNoData) : alert(userInfo);
