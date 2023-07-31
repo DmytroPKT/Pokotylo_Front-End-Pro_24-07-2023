@@ -7,21 +7,32 @@ let numberDivisors = '';
 let evenNumberDivisors = [];
 let evenNumberDivisorsSum = 0;
 
-for (let i = 1; i <= userNumber; i++) {
-    if (userNumber % i != 0) {
-        continue;
+if (!userNumber || userNumber < 0){
+    alert('Invalid input!');
+} else {
+    for (let i = 1; i <= userNumber; i++) {
+        if (userNumber % i != 0) {
+            continue;
+        }
+        if (i % 2 === 0) {
+            evenNumberDivisors.push(i);
+            evenNumberDivisorsSum += i;
+        }
+        if (userNumber === i) {
+            numberDivisors += `${i}`;
+            break;
+        }
+        numberDivisors += `${i}, `;
     }
-    if (i % 2 === 0) {
-        evenNumberDivisors.push(i);
-        evenNumberDivisorsSum += i;
+    if (evenNumberDivisorsSum === 0) {
+        console.log(`The number ${userNumber} can be divided by: ${numberDivisors};
+        \n\ta.The are no any even divisors for the number ${userNumber}!;
+        \n\tb.No any sum of even divisors for the number ${userNumber}!`);
+    } else {
+        console.log(`The number ${userNumber} can be divided by: ${numberDivisors};
+        \n\ta.The even divisors of the number ${userNumber} are: ${evenNumberDivisors}. Their count is ${evenNumberDivisors.length};
+        \n\tb.The sum of even divisors of the number ${userNumber} is ${evenNumberDivisorsSum}.`);
     }
-    if (userNumber === i) {
-        numberDivisors += `${i}`;
-        break;
-    }
-    numberDivisors += `${i}, `;
 }
 
-console.log(`The number ${userNumber} can be divided by: ${numberDivisors};
-\n\ta.The even divisors of the number ${userNumber} are: ${evenNumberDivisors}. Their count is ${evenNumberDivisors.length};
-\n\tb.The sum of even divisors of the number ${userNumber} is ${evenNumberDivisorsSum}.`);
+
