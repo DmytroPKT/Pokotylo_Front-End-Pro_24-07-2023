@@ -2,7 +2,7 @@ document.write(`Hometask 6 - 9th task. Дано натуральне число.
 a.Визначити кількість його парних дільників;
 b.Знайти суму його парних дільників.`);
 
-let userNumber 
+let userNumber;
 let numberDivisors = '';
 let evenNumberDivisors = [];
 let evenNumberDivisorsSum = 0;
