@@ -1,4 +1,4 @@
-document.write('Hometask 6 - 8th task. Надрукувати повну таблицю множення від 1 до 10');
+document.write('Hometask 6 - 10th task. Надрукувати повну таблицю множення від 1 до 10');
 
 let start = 1;
 const end = 10;
