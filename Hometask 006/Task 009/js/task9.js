@@ -26,7 +26,7 @@ if (!userNumber || userNumber < 0){
     }
     if (evenNumberDivisorsSum === 0) {
         console.log(`The number ${userNumber} can be divided by: ${numberDivisors};
-        \n\ta.The are no any even divisors for the number ${userNumber}!;
+        \n\ta.No any even divisors for the number ${userNumber}!;
         \n\tb.No any sum of even divisors for the number ${userNumber}!`);
     } else {
         console.log(`The number ${userNumber} can be divided by: ${numberDivisors};
