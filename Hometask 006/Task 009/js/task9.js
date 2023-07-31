@@ -8,9 +8,6 @@ let evenNumberDivisors = [];
 let evenNumberDivisorsSum = 0;
 
 do {
-    if (userNumber === null && !(isNaN(userNumber))) {
-        break;
-    }
     userNumber = parseInt(prompt('Please enter natural number: '));
     if (!isNaN(userNumber) && (1 <= userNumber)) {
         for (let i = 1; i <= userNumber; i++) {
