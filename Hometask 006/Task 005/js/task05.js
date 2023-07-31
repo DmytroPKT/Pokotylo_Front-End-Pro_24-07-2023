@@ -2,7 +2,7 @@ document.write('Hometask 6 - 5th task. Знайти добуток ycix ціли
 
 let start = 15;
 const end = 35;
-let result = 1
+let result = 1;
 
 for (;start <= end; start++) {
     console.log(`${BigInt(result)} * ${start} = ${BigInt(result * start)}`);
