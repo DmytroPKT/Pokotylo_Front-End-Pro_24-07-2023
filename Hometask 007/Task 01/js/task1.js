@@ -6,6 +6,6 @@ let result = '';
 
 while(start <= end) {
     result += `${start} `;
-    start = start + 0.5;
-}
-console.log(result)
+    start += 0.5;
+};
+console.log(result);
