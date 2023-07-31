@@ -1,4 +1,4 @@
-document.write('Hometask 6 - 6th task. Вивести суму лише парних чисел y діапазоні від 30 до 80');
+document.write('Hometask 6 - 7th task. Вивести суму лише парних чисел y діапазоні від 30 до 80');
 
 let start = 30;
 const end = 80;
