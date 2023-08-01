@@ -4,8 +4,11 @@ let start = 20;
 const end = 30;
 let result = '';
 
-while(start <= end) {
+for (;start <= end; start += 0.5) {
+    if (start === end) {
+        result += `${start}.`;
+        break;
+    }
     result += `${start} `;
-    start += 0.5;
-};
+}
 console.log(result);
