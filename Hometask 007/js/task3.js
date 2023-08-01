@@ -9,7 +9,7 @@ let result = [];
 while (isNaN(userNumber) || userNumber < 1) {
     userNumber = parseInt(prompt('Please, enter number:'));
     if (!isNaN(userNumber) && 1 <= userNumber) {
-        for (; start<=end; start++) {
+        for (; start <= end; start++) {
             if ((start ** 2) <= userNumber) {
                 result.push(start);
             };
