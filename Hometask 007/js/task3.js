@@ -1,7 +1,7 @@
 document.write('Hometask 7 - 3rd task. Дано ціле число. Вивести всі цілі числа від 1 до 100, квадрат яких не перевищує числа N');
 
 let userNumber
-let startInput = 1;
+const startInput = 1;
 let start = startInput;
 const end = 100;
 let result = [];
