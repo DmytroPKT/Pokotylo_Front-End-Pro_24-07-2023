@@ -5,7 +5,6 @@ const end = 35;
 let result = 1;
 
 for (;start <= end; start++) {
-    console.log(`${BigInt(result)} * ${start} = ${BigInt(result * start)}`);
     result *= start;
 }
 console.log(`Final result: ${BigInt(result)}`);

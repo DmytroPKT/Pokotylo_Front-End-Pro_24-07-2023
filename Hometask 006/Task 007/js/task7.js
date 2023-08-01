@@ -2,7 +2,7 @@ document.write('Hometask 6 - 7th task. Вивести суму лише парн
 
 let start = 30;
 const end = 80;
-result = 0;
+let result = 0;
 
 for (;start <= end; start++) {
     if (start % 2 != 0) {
@@ -12,5 +12,3 @@ for (;start <= end; start++) {
     result += start;
 }
 console.log(`Result: ${result}`);
-
-

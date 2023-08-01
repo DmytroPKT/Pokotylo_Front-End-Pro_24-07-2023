@@ -4,7 +4,7 @@ let start = 1;
 const end = 15;
 let result = 0;
 
-for (;start <= 15; start++) {
+for (;start <= end; start++) {
     console.log(`${result} + ${start} = ${result + start}`);
     result += start;
 }
