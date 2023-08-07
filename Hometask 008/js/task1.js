@@ -11,13 +11,12 @@ while(!arrLength || isNaN(arrLength) || arrLength < 1) {
     };
 };
 
-let sortedArray = userArray.toSorted();
+document.write(`<p>Input array: ${userArray}.</p>`);
 
-document.write(`<p>Input array: ${userArray}.</p>
-<p>Sorted array: ${sortedArray}.</p>`);
+document.write(`<p>Sorted array: ${userArray.sort()}.</p>`);
 
-sortedArray.splice(2,3);
-document.write(`<p>Cutted array: ${sortedArray}.</p>`);
+userArray.splice(2,3);
+document.write(`<p>Cutted array: ${userArray}.</p>`);
 
 
 
