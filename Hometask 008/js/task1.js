@@ -17,6 +17,3 @@ document.write(`<p>Sorted array: ${userArray.sort()}.</p>`);
 
 userArray.splice(2,3);
 document.write(`<p>Cutted array: ${userArray}.</p>`);
-
-
-
