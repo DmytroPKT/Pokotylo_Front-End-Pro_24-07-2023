@@ -48,7 +48,7 @@
 const discount = 20;
 const discountStart = 10000;
 const discountCoefficient = (100 - discount) / 100;
-
+const productLength = Object.keys(products).length;
 
 function firstMessage() {
     let category;
@@ -56,7 +56,7 @@ function firstMessage() {
     do {
         do {
             category = parseInt(prompt('Please, enter category number: 1 - phones, 2 - laptops, 3 - monitors, 4 -printers, 5 - routers'));
-        } while(category > products.length || category < 0 || !category || isNaN(category));
+        } while(category > productLength || category < 0 || !category || isNaN(category));
         confirmMessage = confirm(`Are you sure that you wanna choose ${itemChoose(category)}?`)
     } while(!confirmMessage);
     return category;
@@ -90,7 +90,6 @@ let category = itemChoose(noConvertInput);
 
 
 function showProducts(category) {
-    console.log(category)
     for (let i = 0; i < products[category].length; i++) {
         let funcCatNo = products[category][i].no;
         let funcCatPrice = products[category][i].price;
@@ -98,8 +97,8 @@ function showProducts(category) {
         let funcCatSeries = products[category][i].series;
         let funcCatModel = products[category][i].model;
         let funcCatInStore = products[category][i].inStore;
-        console.log('==================================================')
-        console.log(`Product No ${funcCatNo} | Price: ${funcCatPrice} UAH | Brand: ${funcCatBrand} | Series: ${funcCatSeries} | Model: ${funcCatModel} | Remain in store: ${funcCatInStore} pcs.`)
+        console.log(`Product No ${funcCatNo} | Price: ${funcCatPrice} UAH | Brand: ${funcCatBrand} | Series: ${funcCatSeries} | Model: ${funcCatModel} | Remain in store: ${funcCatInStore} pcs.`);
+        console.log('==================================================');
     };
 }
 
