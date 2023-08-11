@@ -209,4 +209,5 @@ const products = {
             inStore: 2,
         },
     ],
+    
   };
