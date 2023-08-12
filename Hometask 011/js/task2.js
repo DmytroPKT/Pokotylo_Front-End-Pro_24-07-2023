@@ -1,54 +1,81 @@
-document.write(`<h3>Написать функцию doMath(x, znak, y), которая получает 3 аргумента: числа x и y, строку znak. 
-В переменной znak может быть: +, -, *, /, %, ^ (степень). Вывести результат математического действия, 
-указанного в переменной znak. Оба числа и знак получаются от пользователя.</h3>`);
+let arrayForValidation = [];
+const operations = ['+', '-', '*', '/', '%', '^'];
+const firstNumber = getValidNumber('first');
+const operation = getValidOperation();
+const secondNumber = getValidNumber('second');
 
-const operators = ['+', '-', '*', '/', '%', '**']
-const firstNumber = getNumber('first');
-const operator = prompt(`Enter operator:${operators.join('\n')}`)
-const secondNumber = getNumber('second');
+const result = doMath(firstNumber,operation,secondNumber);
 
-function getNumber(numberName) {
-    return parseInt(prompt(`Enter ${numberName} number: `))
+showResult();
+
+function isValidDivision(inputNumber) {
+    if (arrayForValidation.length < 1) {
+        return true;
+    }else if ((operation === '/' || operation === '%') && inputNumber === 0){
+        return alert(`Can't divide by ${inputNumber}!`);
+    } else {
+        return true;
+    }
 }
 
-function isValidOperation() {
-    return operators.includes(operator)
+function getValidNumber(numberName) {
+    let input;
+    do{
+        input = parseInt(prompt(`Enter ${numberName} number: `));
+    } while(isNaN(input) || !isValidDivision(input));
+    return input;
 }
 
-function isValidNumbers() {
-    return !isNaN(firstNumber) && !isNaN(secondNumber);
+function getValidOperation() {
+    let oper;
+    do{
+        oper = prompt(`Enter operator:\n${operations.join('\n')}`);
+    } while(!operations.includes(oper));
+    arrayForValidation.push(oper);
+    return oper;
 }
 
-function isValidDivision() {
-    return (operator != '/' || operator != '%') && secondNumber != 0;
-}
-
-if (isValidDivision() && isValidNumbers() && isValidOperation()) {
-    console.log(`${firstNumber} ${operator} ${secondNumber} = ${div(firstNumber, secondNumber)}`)
-}
-
-
-
-function summ(x,y) {
+function doSumm(x,y) {
     return x + y;
 }
 
-function sub(x,y) {
+function doSubtraction(x,y) {
     return x - y;
 }
 
-function mul(x,y) {
+function doMultiplication(x,y) {
     return x * y;
 }
 
-function div(x,y) {
+function doDivision(x,y) {
     return x / y;
 }
 
-function dwr(x,y) {
+function doRemainder(x,y) {
     return x % y;
 }
 
-function exp(x,y) {
+function doExponentiation(x,y) {
     return x ** y;
+}
+
+function doMath(x, oper, y) {
+    switch(oper){
+        case('+'):
+            return doSumm(x,y);
+        case('-'):
+            return doSubtraction(x,y);
+        case('*'):
+            return doMultiplication(x,y);
+        case('/'):
+            return doDivision(x,y);
+        case('%'):
+            return doRemainder(x,y);
+        case('^'):
+            return doExponentiation(x,y);
+    };
+}
+
+function showResult() {
+    alert(`${firstNumber} ${operation} ${secondNumber} = ${result}`);
 }
