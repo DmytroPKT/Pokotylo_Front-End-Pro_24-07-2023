@@ -1,6 +1,6 @@
 let operationInUse = [];
-const operations = getData()[2];
-const operationsNames = getData()[1];
+const operationsNames = getOperationsNames ();
+const operations = getOperationsSymbols ();
 
 const firstNumber = getValidNumber('first');
 const operation = getValidOperation();
@@ -19,12 +19,22 @@ function getData(first, second) {
         remainder: {symbol: '%', action: doRemainder(first, second)},
         exponentiation: {symbol: '^', action: doExponentiation(first, second)},
     };
+    return operationsObj;
+}
+
+function getOperationsNames () {
+    const operationsObj = getData();
     const operNames = Object.keys(operationsObj);
+    return operNames;
+}
+
+function getOperationsSymbols () {
+    const operationsObj = getData();
     let symbols = [];
-    for (let i = 0; i < operNames.length; i++) {
-        symbols.push(operationsObj[operNames[i]]['symbol']);
+    for (let i = 0; i < operationsNames.length; i++) {
+        symbols.push(operationsObj[operationsNames[i]]['symbol']);
     };
-    return [operationsObj, operNames, symbols];
+    return symbols;
 }
 
 function getOperationsDescriptions() {
@@ -36,7 +46,7 @@ function getOperationsDescriptions() {
 }
 
 function isValidDivision(inputNumber) {
-    let valObj = getData()[0];
+    let valObj = getData();
     if (operationInUse.length < 1) {
         return true;
     }else if ((operation === valObj.division.symbol || operation === valObj.remainder.symbol) && inputNumber === 0){
@@ -89,7 +99,7 @@ function doExponentiation(x,y) {
 }
 
 function doMath(x, oper, y) {
-    let valObj = getData(x,y)[0];
+    let valObj = getData(x,y);
     for (let i = 0; i < operationsNames.length; i++) {
         if (valObj[operationsNames[i]].symbol === oper) {
             return valObj[operationsNames[i]].action;
