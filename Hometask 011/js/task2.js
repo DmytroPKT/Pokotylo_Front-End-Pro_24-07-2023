@@ -1,22 +1,51 @@
-let arrayForValidation = [];
-const operations = ['+', '-', '*', '/', '%', '^'];
+let operationInUse = [];
+const operations = getData()[2];
+const operationsNames = getData()[1];
+
 const firstNumber = getValidNumber('first');
 const operation = getValidOperation();
 const secondNumber = getValidNumber('second');
 
-const result = doMath(firstNumber,operation,secondNumber);
+const result = doMath(firstNumber,operation, secondNumber);
 
 showResult();
 
+function getData(first, second) {
+    const operationsObj = {
+        summ: {symbol: '+', action: doSumm(first, second)},
+        subtraction: {symbol: '-', action: doSubtraction(first, second)},
+        multiplication: {symbol: '*', action: doMultiplication(first, second)},
+        division: {symbol: '/', action: doDivision(first, second)},
+        remainder: {symbol: '%', action: doRemainder(first, second)},
+        exponentiation: {symbol: '^', action: doExponentiation(first, second)},
+    };
+    const operNames = Object.keys(operationsObj);
+    let symbols = [];
+    for (let i = 0; i < operNames.length; i++) {
+        symbols.push(operationsObj[operNames[i]]['symbol']);
+    };
+    return [operationsObj, operNames, symbols];
+}
+
+function getOperationsDescriptions() {
+    let message = '';
+    for (let i = 0; i < operations.length; i++) {
+        message += `${operations[i]}    ${operationsNames[i]}\n`;
+    };
+    return message;
+}
+
 function isValidDivision(inputNumber) {
-    if (arrayForValidation.length < 1) {
+    let valObj = getData()[0];
+    if (operationInUse.length < 1) {
         return true;
-    }else if ((operation === '/' || operation === '%') && inputNumber === 0){
+    }else if ((operation === valObj.division.symbol || operation === valObj.remainder.symbol) && inputNumber === 0){
         return alert(`Can't divide by ${inputNumber}!`);
     } else {
         return true;
-    }
+    };
 }
+
 
 function getValidNumber(numberName) {
     let input;
@@ -29,9 +58,9 @@ function getValidNumber(numberName) {
 function getValidOperation() {
     let oper;
     do{
-        oper = prompt(`Enter operator:\n${operations.join('\n')}`);
+        oper = prompt(`Enter operation:\n${getOperationsDescriptions()}`);
     } while(!operations.includes(oper));
-    arrayForValidation.push(oper);
+    operationInUse.push(oper);
     return oper;
 }
 
@@ -60,19 +89,11 @@ function doExponentiation(x,y) {
 }
 
 function doMath(x, oper, y) {
-    switch(oper){
-        case('+'):
-            return doSumm(x,y);
-        case('-'):
-            return doSubtraction(x,y);
-        case('*'):
-            return doMultiplication(x,y);
-        case('/'):
-            return doDivision(x,y);
-        case('%'):
-            return doRemainder(x,y);
-        case('^'):
-            return doExponentiation(x,y);
+    let valObj = getData(x,y)[0];
+    for (let i = 0; i < operationsNames.length; i++) {
+        if (valObj[operationsNames[i]].symbol === oper) {
+            return valObj[operationsNames[i]].action;
+        };
     };
 }
 
