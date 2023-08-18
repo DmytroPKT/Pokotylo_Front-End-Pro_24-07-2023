@@ -1,33 +1,43 @@
-// const array = [1, 2, 3, 4, 5, 6, 7];
-// removeElement(array, 5);
-// console.log(array);
-// Результат: [1, 2, 3, 4, 6, 7]
+const taskArray = [1, 2, 3, 4, 5, 6, 7, '1', '2', '3', '4', '5', '6', '7', 'Bill', 'Jack', 'Kate', 'Bill', 'Bill', 7, 7, 7, 7, 7, 7, 7, 7];
 
-// const taskArray = [1, 2, 3, 4, 5, 6, 7];
-const taskArray = [1, 2, 3, 4, 5, 6, 7, 'Kate', 'John','1', '2', '3', '4', '5', '6', '7'];
-
-
-showArray('Input');
-const valueToremove = inputValue();
+appendixElements(taskArray);
+showArray(taskArray, 'Input');
+const valueToremove = inputValueToRemove(taskArray);
 removeElement(taskArray, valueToremove);
-showArray('Output');
+showArray(taskArray, 'Output');
+
+function appendixElements(arr) {
+    let input;
+    do {
+        input = prompt(`Enter elements which you want add to array ${arr}.\n\nIf you don't want to add any more elements - press CANCEL.`);
+        arr.push(input);
+    } while (input != null);
+    arr.pop();
+    return arr;
+}
+
 
 function removeElement(arr, value) {
     for (let i = 0; i < arr.length; i++) {
-        if (arr[i] == value) {
-            arr.splice(i,1);
+        if (arr[i] == value) { // Since the array can contain numbers of numeric type and numbers of string type. Equality is non-strict.
+            arr.splice(i, 1);
+            return removeElement(arr, value);
         };
-    }return arr;
+    };
+    return arr;
 }
 
-function inputValue() {
+function inputValueToRemove(arr) {
     let input;
+    let requirements;
     do {
-        input = prompt(`Enter any value to remove from ${taskArray}:`);
-    }while(!taskArray.includes(input));
+        input = prompt(`Enter any value to remove from ${arr}:`);
+        requirements = arr.includes(input);
+        !requirements && alert(`There is no any ' ${input} ' in ${arr}!`);
+    } while (!requirements);
     return input;
 }
 
-function showArray(arrName) {
-    console.log(`${arrName} array: ${taskArray}.`)
+function showArray(arr, arrName) {
+    console.log(`${arrName} array: ${arr}.${arr.length}`);
 }
