@@ -1,11 +1,3 @@
-const taskArray = [1, 2, 3, 4, 5, 6, 7, '1', '2', '3', '4', '5', '6', '7', 'Bill', 'Jack', 'Kate', 'Bill', 'Bill', 7, 7, 7, 7, 7, 7, 7, 7];
-
-appendixElements(taskArray);
-showArray(taskArray, 'Input');
-const valueToremove = inputValueToRemove(taskArray);
-removeElement(taskArray, valueToremove);
-showArray(taskArray, 'Output');
-
 function appendixElements(arr) {
     let input;
     do {
@@ -39,5 +31,5 @@ function inputValueToRemove(arr) {
 }
 
 function showArray(arr, arrName) {
-    console.log(`${arrName} array: ${arr}.${arr.length}`);
+    console.log(`${arrName} array: ${arr}.`);
 }
