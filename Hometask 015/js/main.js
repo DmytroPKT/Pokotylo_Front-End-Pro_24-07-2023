@@ -1,3 +1,5 @@
+'use strickt';
+
 const minLength = 5;
 const maxLength = 50;
 

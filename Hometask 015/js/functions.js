@@ -1,3 +1,5 @@
+'use strickt';
+
 function generateKey(len, chars) {
     let result = '';
     for (let i = 0; i < len; i++) {
