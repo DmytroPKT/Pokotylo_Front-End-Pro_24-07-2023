@@ -48,3 +48,7 @@ function getInput(fnNumber, fnDissect) {
         fnDissect(first, second);
     };
 }
+
+function showResult(result) {
+    console.log(result);
+}

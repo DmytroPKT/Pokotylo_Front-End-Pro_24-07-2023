@@ -53,5 +53,7 @@ cacheDissection(11, 2);
 cacheDissection(11, 2);
 cacheDissection(11, 2);
 cacheDissection(11, 22);
+
 getInput(getNumbers, cacheDissection);
-console.log(cacheList)
+
+showResult(cacheList);
