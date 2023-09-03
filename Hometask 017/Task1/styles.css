@@ -1,0 +1,11 @@
+#info {
+  display: none;
+  padding: 5px;
+  background-color: lightcoral;
+  color: black;
+  max-width: 200px;
+  margin: 10px 0;
+  font-size: 20px;
+  border-radius: 10px;
+  font-weight: 600;
+}
