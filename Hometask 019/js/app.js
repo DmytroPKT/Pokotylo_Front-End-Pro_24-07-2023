@@ -22,6 +22,7 @@ function showCategories(cat) {
 
 document.getElementById('left').addEventListener('click', event => {
     if (event.target.nodeName === 'DIV') {
+        prodInfo.style.display = 'none';
         const category = event.target.getAttribute('data-category');
         const categoryProducts = categories[category].products;
         showProducts(categoryProducts, category);

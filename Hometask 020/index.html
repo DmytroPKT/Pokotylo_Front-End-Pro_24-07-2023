@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="registrationForm">
+        <h1>Регистрационная форма</h1>
+        <form id="userForm">
+          <div>
+            <label for="firstName">Имя:</label>
+            <input type="text" id="firstName" name="firstName" required>
+          </div>
+          <div>
+            <label for="lastName">Фамилия:</label>
+            <input type="text" id="lastName" name="lastName" required>
+          </div>
+          <div>
+            <label for="dob">Дата рождения:</label>
+            <input type="text" id="dob" name="dob" required>
+          </div>
+          <div>
+            <label>Пол:</label>
+            <input type="radio" id="male" name="gender" value="Мужской">
+            <label for="male">Мужской</label>
+            <input type="radio" id="female" name="gender" value="Женский">
+            <label for="female">Женский</label>
+          </div>
+          <div>
+            <label for="city">Город:</label>
+            <select id="city" name="city">
+              <option value="Москва">Москва</option>
+              <option value="Санкт-Петербург">Санкт-Петербург</option>
+              <option value="Киев">Киев</option>
+              <!-- Добавьте другие варианты городов по вашему усмотрению -->
+            </select>
+          </div>
+          <div>
+            <label for="address">Адрес:</label>
+            <textarea id="address" name="address"></textarea>
+          </div>
+          <div>
+            <label>Языки, которыми владеет:</label>
+            <input type="checkbox" id="english" name="languages" value="Английский">
+            <label for="english">Английский</label>
+            <input type="checkbox" id="french" name="languages" value="Французский">
+            <label for="french">Французский</label>
+            <!-- Добавьте другие языки по вашему усмотрению -->
+          </div>
+          <button type="button" id="saveButton">Сохранить</button>
+        </form>
+      </div>
+      
+      <div id="userData" class="hidden">
+        <h1>Данные пользователя:</h1>
+        <table>
+          <!-- Сюда будут добавлены данные пользователя после отправки формы -->
+        </table>
+      </div>
+    <script src="app.js" ></script>
+</body>
+</html>
