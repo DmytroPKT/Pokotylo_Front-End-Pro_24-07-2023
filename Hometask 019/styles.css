@@ -1,0 +1,56 @@
+#main {
+    display: flex;
+    font-family: Arial, sans-serif;
+    gap: 10px;
+    min-height: 1000px;
+}
+
+#main>div {
+    flex-basis: 30%;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+#right {
+    display: none;
+    max-height: 230px;
+}
+
+#center {
+    display: none;
+    max-height: 120px;
+}
+
+#left {
+    max-height: 120px;
+}
+
+#left>div {
+    cursor: pointer;
+    margin: 15px;
+    max-width: fit-content;
+}
+
+#center>div {
+    cursor: pointer;
+    margin: 15px;
+    max-width: fit-content;
+}
+
+#buyButton {
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+    background: #0c7511;
+    border: 1px solid;
+    border-radius: 10px;
+}
+
+.button-text {
+    font-weight: 900;
+    font-size: 16px;
+}
+
+#right * {
+    margin: 15px;
+    max-width: fit-content;
+}
