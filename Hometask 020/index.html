@@ -3,63 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hometask 20</title>
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
 </head>
 <body>
-    <div id="registrationForm">
-        <h1>Регистрационная форма</h1>
-        <form id="userForm">
-          <div>
-            <label for="firstName">Имя:</label>
-            <input type="text" id="firstName" name="firstName" required>
-          </div>
-          <div>
-            <label for="lastName">Фамилия:</label>
-            <input type="text" id="lastName" name="lastName" required>
-          </div>
-          <div>
-            <label for="dob">Дата рождения:</label>
-            <input type="text" id="dob" name="dob" required>
-          </div>
-          <div>
-            <label>Пол:</label>
-            <input type="radio" id="male" name="gender" value="Мужской">
-            <label for="male">Мужской</label>
-            <input type="radio" id="female" name="gender" value="Женский">
-            <label for="female">Женский</label>
-          </div>
-          <div>
-            <label for="city">Город:</label>
-            <select id="city" name="city">
-              <option value="Москва">Москва</option>
-              <option value="Санкт-Петербург">Санкт-Петербург</option>
-              <option value="Киев">Киев</option>
-              <!-- Добавьте другие варианты городов по вашему усмотрению -->
-            </select>
-          </div>
-          <div>
-            <label for="address">Адрес:</label>
-            <textarea id="address" name="address"></textarea>
-          </div>
-          <div>
-            <label>Языки, которыми владеет:</label>
-            <input type="checkbox" id="english" name="languages" value="Английский">
-            <label for="english">Английский</label>
-            <input type="checkbox" id="french" name="languages" value="Французский">
-            <label for="french">Французский</label>
-            <!-- Добавьте другие языки по вашему усмотрению -->
-          </div>
-          <button type="button" id="saveButton">Сохранить</button>
-        </form>
-      </div>
-      
-      <div id="userData" class="hidden">
-        <h1>Данные пользователя:</h1>
-        <table>
-          <!-- Сюда будут добавлены данные пользователя после отправки формы -->
-        </table>
-      </div>
-    <script src="app.js" ></script>
+    <form name="inputForm">
+        <h1>Registration form</h1>
+        <p>Enter your Name:
+        <input type="text" name="name" placeholder="Davy"></p>
+        <p>Enter your Family Name:
+        <input type="text" name="familyname" placeholder="Johnes"></p>
+        <p>Enter your date of birth:
+            <input type="date" name="dob">
+        </p>
+        <p>Enter your gender:</p>
+        <p><input type="radio" name="gen" value="Male">Male</p>
+        <p><input type="radio" name="gen" value="Female">Female</p>
+        <p>Enter your city:</p>
+        <select name="cities">
+            <option value="na">Your city:</option>
+                  <option value="kie">Kyiv</option>
+                  <option value="ods">Odesa</option>
+                  <option value="chk">Cherkasy</option>
+                  <option value="chr">Chernygiv</option>
+                  <option value="chn">Chernivtsy</option>
+                  <option value="vin">Vinnytsa</option>
+                  <option value="dni">Dnipro</option>
+                  <option value="don">Donetsk</option>
+                  <option value="zap">Zaporizhya</option>
+                  <option value="zhi">Zhitomyr</option>
+                  <option value="ivf">Ivano-Frankivsk</option>
+                  <option value="izm">Izmail</option>
+                  <option value="kha">Kharkiv</option>
+                  <option value="khe">Kherson</option>
+                  <option value="khm">Khmelnytsky</option>
+                  <option value="kro">Kropivnytsky</option>
+                  <option value="luh">Luhansk</option>
+                  <option value="lut">Lutsk</option>
+                  <option value="lvi">Lviv</option>
+                  <option value="myk">Mykolaiv</option>
+                  <option value="pol">Poltava</option>
+                  <option value="riv">Rivne</option>
+                  <option value="sev">Sevastopol</option>
+                  <option value="sum">Summy</option>
+                  <option value="uzh">Uzhgorod</option>
+        </select>
+        <p>Enter your address:</p>
+        <textarea name="addr"></textarea>
+        <p>Languages ​​spoken:</p>
+        <p><input type="checkbox" name="languages" value="Ukrainian">Ukrainian</p>
+        <p><input type="checkbox" name="languages" value="English">English</p>
+        <p><input type="checkbox" name="languages" value="French">French</p>
+        <p><input type="checkbox" name="languages" value="German">German</p>
+        <p><input type="checkbox" name="languages" value="Spanish">Spanish</p>
+        <p><input type="checkbox" name="languages" value="Italian">Italian</p>
+
+        <button type="button" id="saveButton">Send</button>
+    </form>
+    <div id="userData" class="hidden">
+        <h1>User input data:</h1>
+        <table></table>
+        <br/>
+        <button id="resetBtn" type="reset" >Reset</button>
+    </div>
+
+    <script src="js/data.js" ></script>
+    <script src="js/app.js" ></script>
 </body>
 </html>
