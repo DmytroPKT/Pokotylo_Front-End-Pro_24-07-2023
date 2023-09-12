@@ -1,5 +1,5 @@
 const inputElements = document.forms.inputForm.elements;
-const inputForm = document.forms.inputForm
+const inputForm = document.forms.inputForm;
 const saveButton = document.getElementById("saveButton");
 const userData = document.getElementById('userData');
 const table = document.querySelector('table');
