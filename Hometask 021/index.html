@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hometask 21</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <div id="main">
+        <div id="left"></div>
+        <div id="center"></div>
+        <div id="right">
+            <h4>Product info:</h4>
+            <p id="prod-name"></p>
+            <p id="prod-price"></p>
+            <p id="prod-description"></p>
+            <button id="buyButton">
+                <p class="button-text">Buy</p>
+            </button>
+        </div>
+        <div id="orderBlock">
+            <form name="orderForm">
+                <h1>Order form</h1>
+                <p>Enter your Name:
+                    <input type="text" name="name" placeholder="Davy">
+                </p>
+                <p>Enter your Middle Name:
+                    <input type="text" name="middleName" placeholder="Erik">
+                </p>
+                <p>Enter your Family Name:
+                    <input type="text" name="familyName" placeholder="Johnes">
+                </p>
+                <p>Enter your city:</p>
+                <div id="citiesBlock"></div>
+                <p>Choose Nova Poshta store number:</p>
+                <div id="postsBlock"></div>
+                <p>Enter pay method:</p>
+                <p><input type="radio" name="pay" value="card">By card online</p>
+                <p><input type="radio" name="pay" value="cash">Cash after delivering</p>
+                <p>Enter quantity:</p>
+                <input type="number" name="qty" placeholder="QTY"/>
+                <p>Enter your commet to order:</p>
+                <textarea name="comment"></textarea>
+                <button type="button" id="saveButton">Confirm</button>
+            </form>
+        </div>
+    </div>
+    <script src="js/data.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>

@@ -5,6 +5,28 @@ const userData = document.getElementById('userData');
 const table = document.querySelector('table');
 const resetBtn = document.getElementById('resetBtn');
 
+
+function createCities() {
+    const parent = document.getElementById('citiesBlock');
+
+    const selectElem = document.createElement('select');
+    selectElem.name = 'cities';
+
+    for (key in cities) {
+        const option = document.createElement('option');
+        option.value = key;
+        option.id = 'city';
+        option.textContent = cities[key];
+
+        selectElem.appendChild(option);
+    }
+
+    parent.appendChild(selectElem);
+
+}
+
+createCities();
+
 saveButton.addEventListener('click', () => {
     const userInputObj = {
         'Name:': inputElements.name.value,
