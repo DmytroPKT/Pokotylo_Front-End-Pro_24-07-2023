@@ -5,27 +5,8 @@ const userData = document.getElementById('userData');
 const table = document.querySelector('table');
 const resetBtn = document.getElementById('resetBtn');
 
-
-function createCities() {
-    const parent = document.getElementById('citiesBlock');
-
-    const selectElem = document.createElement('select');
-    selectElem.name = 'cities';
-
-    for (key in cities) {
-        const option = document.createElement('option');
-        option.value = key;
-        option.id = 'city';
-        option.textContent = cities[key];
-
-        selectElem.appendChild(option);
-    }
-
-    parent.appendChild(selectElem);
-
-}
-
 createCities();
+createLanguages();
 
 saveButton.addEventListener('click', () => {
     const userInputObj = {
@@ -35,7 +16,7 @@ saveButton.addEventListener('click', () => {
         'Gender:': inputElements.gen.value,
         'City:': cities[inputElements.cities.value],
         'Address:': inputElements.addr.value,
-        'Languages:': [...document.querySelectorAll('input[name="languages"]:checked')].map(input => input.value),
+        'Languages:': [...document.querySelectorAll('input[name="languages"]:checked')].map(input => languages[input.value]),
     };
 
     const tableKeys = Object.keys(userInputObj);

@@ -26,3 +26,12 @@ const cities = {
   sum: 'Summy',
   uzh: 'Uzhgorod',
 };
+
+const languages = {
+  ua: 'Ukrainian',
+  en: 'English',
+  fr: 'French',
+  ge: 'German',
+  es: 'Spanish',
+  it: 'Italian',
+}
