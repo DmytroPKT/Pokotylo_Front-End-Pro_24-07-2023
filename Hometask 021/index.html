@@ -25,30 +25,51 @@
             <form name="orderForm">
                 <h1>Order form</h1>
                 <p>Enter your Name:
-                    <input type="text" name="name" placeholder="Davy">
+                    <input type="text" name="firstname" placeholder="Davy">
+                    <br />
+                    <small>Please enter your name</small>
                 </p>
                 <p>Enter your Middle Name:
                     <input type="text" name="middleName" placeholder="Erik">
+                    <br />
+                    <small>Please enter your middle name</small>
                 </p>
                 <p>Enter your Family Name:
                     <input type="text" name="familyName" placeholder="Johnes">
+                    <br />
+                    <small>Please enter your family name</small>
                 </p>
-                <p>Enter your city:</p>
-                <div id="citiesBlock"></div>
+                <p id="citiesBlock">Enter your city:
+                    <small>Please choose your city</small>
+                    <br>
+                </p>
                 <p>Choose Nova Poshta store number:</p>
                 <div id="postsBlock"></div>
                 <p>Enter pay method:</p>
-                <p><input type="radio" name="pay" value="card">By card online</p>
-                <p><input type="radio" name="pay" value="cash">Cash after delivering</p>
-                <p>Enter quantity:</p>
-                <input type="number" name="qty" placeholder="QTY"/>
-                <p>Enter your commet to order:</p>
+                <div id="paymentBlock">
+                    <p>Card<input type="radio" name="pay" value="card">
+                        Cash<input type="radio" name="pay" value="cash"><br /><small>Please choose payment
+                            method</small></p>
+                </div>
+
+                <p>Enter quantity:
+                    <input type="number" name="qty" placeholder="QTY" value="1" />
+                    <br />
+                    <small>Please enter proper qty</small>
+                </p>
+                <p>Enter your comment to order:</p>
                 <textarea name="comment"></textarea>
+                <br />
                 <button type="button" id="saveButton">Confirm</button>
             </form>
         </div>
+        <div id="orderInfo">
+            <h1>Order info</h1>
+            <table></table>
+        </div>
     </div>
     <script src="js/data.js"></script>
+    <script src="js/functions.js"></script>
     <script src="js/app.js"></script>
 </body>
 

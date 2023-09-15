@@ -1,122 +1,79 @@
+'use strickt';
+
 const prodInfo = document.getElementById('right');
 const productsBlock = document.getElementById('center');
-const prodName = document.getElementById('prod-name');
-const prodPrice = document.getElementById('prod-price');
-const prodDesc = document.getElementById('prod-description');
 const buyButton = document.getElementById('buyButton');
-const orderInput = document.forms.orderForm.elements;// далее при получении данных из формы
+const orderInput = document.forms.orderForm.elements;
+const citiesBlock = document.getElementById('citiesBlock');
+const saveBtn = document.getElementById('saveButton');
+const orderBlock = document.getElementById('orderBlock');
+const orderInfo = document.getElementById('orderInfo');
 
 showCategories(categories);
-
-function showCategories(cat) {
-    const parentElement = document.getElementById('left');
-
-    for (let categoryKey in cat) {
-        const category = cat[categoryKey];
-
-        let element = document.createElement('div');
-        element.textContent = category.name;
-        element.setAttribute('data-category', categoryKey);
-        parentElement.appendChild(element);
-    }
-}
+createCities();
 
 document.getElementById('left').addEventListener('click', event => {
     if (event.target.nodeName === 'DIV') {
         prodInfo.style.display = 'none';
+        orderBlock.style.display = 'none';
         const category = event.target.getAttribute('data-category');
         const categoryProducts = categories[category].products;
         showProducts(categoryProducts, category);
     }
 });
 
-function showProducts(products, cat) {
-    const parentElement = document.getElementById('center');
-    parentElement.innerHTML = '';
-    productsBlock.style.display = 'block';
-
-    for (let product of products) {
-        let element = document.createElement('div');
-        element.textContent = `${product.name} ${product.price}$`;
-        element.setAttribute('product-id', product.id);
-        element.setAttribute('data-category', cat);
-
-        parentElement.appendChild(element);
-    }
-}
 
 document.getElementById('center').addEventListener('click', event => {
     if (event.target.nodeName === 'DIV') {
+        orderBlock.style.display = 'none';
         const productId = event.target.getAttribute('product-id');
         const categoryKey = event.target.getAttribute('data-category');
 
         const product = categories[categoryKey].products.find(product => product.id == productId);
-        showProduct(product);
+        showProduct(product, categoryKey);
     }
 });
-
-function showProduct(prod) {
-    prodInfo.style.display = 'block';
-    prodName.textContent = prod.name;
-    prodPrice.textContent = `Price: ${prod.price}$`;
-    prodDesc.textContent = `Description: ${prod.description}`;
-}
 
 buyButton.addEventListener('click', () => {
     alert(`You bought the product!`);
-    prodInfo.style.display = 'none';
-    productsBlock.style.display = 'none';
+    orderBlock.style.display = 'block';
 });
 
-function createCities() {
-    const parent = document.getElementById('citiesBlock');
-
-    const selectElem = document.createElement('select');
-
-    for (key in cities) {
-        const option = document.createElement('option');
-        option.value = key;
-        option.id = 'city';
-        option.textContent = cities[key];
-
-        selectElem.appendChild(option);
-    }
-
-    parent.appendChild(selectElem);
-
-}
-
-createCities();
-
-const citiesBlock = document.getElementById('citiesBlock');
-citiesBlock.addEventListener('change', (event) => {
+citiesBlock.addEventListener('change', event => {
     const cityValue = event.target.value;
     createPostStores(cityValue);
 })
 
+saveBtn.addEventListener("click", event => {
+    if (!isValidSafe(orderInput)) {
+        alert("invalid input");
+        event.preventDefault();
+    } else {
+        const prodId = document.getElementById('prod-name').getAttribute('orderId');
+        const cat = document.getElementById('prod-name').getAttribute('orderCategory');
+        const product = categories[cat].products.find(product => product.id == prodId);
+        const table = document.querySelector('table');
+        table.innerHTML = '';
+        tableCellsNumber = 2;
 
-function createPostStores(value) {
-    const parent = document.getElementById('postsBlock');
-    parent.innerHTML = '';
-    const selectElem = document.createElement('select');
-    const noCityText = document.createElement('p');
-    
-    for (key in posts) {
-        if (value === key) {
-            for (let i = 1; i <= posts[key]; i++) {
-                const option = document.createElement('option');
-                option.value = i;
-                option.textContent = `No ${i}`;
+        const userInputObj = {
+            'Product name': product.name,
+            'Quantity:': orderInput.qty.value,
+            'Final price': `${product.price}$ * ${orderInput.qty.value} = ${product.price * orderInput.qty.value}$`,
+            'Customer\'s Name:': orderInput.firstname.value,
+            'Customer\'s Middle Name:': orderInput.middleName.value,
+            'Customer\'s Family Name:': orderInput.familyName.value,
+            'Customer\'s City:': cities[orderInput.cities.value],
+            'Nova Poshta Store No:': orderInput.posts.value,
+            'Payment:': orderInput.pay.value,
+            'Comment:': orderInput.comment.value,
+        };
 
-                selectElem.appendChild(option);
-            }
-            parent.appendChild(selectElem);
-        } else if (value === 'na') {
-            noCityText.textContent = 'You doesn\'t choose the city!';
-            parent.appendChild(noCityText);
-        }
-    }
-}
+        createOrderTable(userInputObj, table, tableCellsNumber);
 
-
-
+        prodInfo.style.display = 'none';
+        orderBlock.style.display = 'none';
+        productsBlock.style.display = 'none';
+        orderInfo.style.display = 'block';
+    };
+});

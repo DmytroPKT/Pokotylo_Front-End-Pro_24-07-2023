@@ -1,5 +1,6 @@
 #main {
     display: flex;
+    flex-wrap: wrap;
     font-family: Arial, sans-serif;
     gap: 10px;
     min-height: 1000px;
@@ -21,6 +22,18 @@
     max-height: 120px;
 }
 
+#orderBlock {
+    display: none;
+    max-height: 700px;
+}
+
+#orderInfo {
+    display: none;
+    position: absolute;
+    top: 320px;
+    right: 100px;
+}
+
 #left {
     max-height: 120px;
 }
@@ -37,7 +50,8 @@
     max-width: fit-content;
 }
 
-#buyButton {
+#buyButton,
+#saveButton {
     cursor: pointer;
     color: rgb(255, 255, 255);
     background: #0c7511;
@@ -53,4 +67,33 @@
 #right * {
     margin: 15px;
     max-width: fit-content;
+}
+
+input.error {
+    border-color: #dc3545;
+}
+
+input.error:focus {
+    box-shadow: 0 0 0 0.25rem rgb(220 53 69 / 25%);
+}
+
+.error {
+    color: #dc3545;
+}
+
+input.success {
+    border-color: #198754;
+}
+
+input.success:focus {
+    box-shadow: 0 0 0 0.25rem rgb(25 135 84 / 25%);
+}
+
+input:focus {
+    outline: none;
+    box-shadow: 0 0 0 2pt rgb(49, 132, 253, 0.5);
+}
+
+small {
+    color: #ffffff;
 }

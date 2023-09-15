@@ -1,5 +1,7 @@
+'use strickt';
+
 const cities = {
-    na: 'Not available',
+    '0': 'Not available',
     kie: 'Kyiv',
     ods: 'Odesa',
     chk: 'Cherkasy',
