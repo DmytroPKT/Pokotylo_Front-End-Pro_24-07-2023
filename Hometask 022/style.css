@@ -1,0 +1,158 @@
+#main {
+    display: flex;
+    flex-wrap: wrap;
+    font-family: Arial, sans-serif;
+    gap: 10px;
+    min-height: 1000px;
+}
+
+#main>div {
+    flex-basis: 30%;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.hidden {
+    display: none;
+}
+
+
+#right {
+    display: none;
+    max-height: 230px;
+}
+
+#center {
+    display: none;
+    max-height: 120px;
+}
+
+#orderBlock {
+    display: none;
+    max-height: 700px;
+}
+
+
+#left {
+    max-height: 120px;
+}
+
+#left>div {
+    cursor: pointer;
+    margin: 15px;
+    max-width: fit-content;
+}
+
+#center>div {
+    cursor: pointer;
+    margin: 15px;
+    max-width: fit-content;
+}
+
+#buyButton,
+#saveButton {
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+    background: #0c7511;
+    border: 1px solid #0c7511;
+    border-radius: 10px;
+}
+
+.button-text {
+    font-weight: 900;
+    font-size: 16px;
+}
+
+#right * {
+    margin: 15px;
+    max-width: fit-content;
+}
+
+input.error {
+    border-color: #dc3545;
+}
+
+input.error:focus {
+    box-shadow: 0 0 0 0.25rem rgb(220 53 69 / 25%);
+}
+
+.error {
+    color: #dc3545;
+}
+
+input.success {
+    border-color: #198754;
+}
+
+input.success:focus {
+    box-shadow: 0 0 0 0.25rem rgb(25 135 84 / 25%);
+}
+
+input:focus {
+    outline: none;
+    box-shadow: 0 0 0 2pt rgb(49, 132, 253, 0.5);
+}
+
+small {
+    color: #ffffff;
+}
+
+#ordersButton {
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid;
+    cursor: pointer;
+}
+
+#orders {
+    margin: 10px 0;
+}
+
+.order-info {
+    margin: 10px 0;
+    padding: 10px;
+    max-width: fit-content;
+    border: 2px solid green;
+    border-radius: 10px;
+}
+
+.order-name {
+    margin: 0;
+    font-size: 14px;
+    text-align: center;
+    font-weight: 900;
+    cursor: pointer;
+}
+
+.delete-button {
+    margin: 10px 0 5px;
+    border: 2px solid rgb(143, 30, 30);
+    border-radius: 5px;
+    font-weight: 900;
+    font-size: 12px;
+    background-color: rgb(143, 30, 30);
+    color: #ffffff;
+    cursor: pointer;
+}
+
+table {
+    width: 100%;
+    border-collapse: separate;
+    margin-top: 20px;
+}
+
+table,
+th,
+td {
+    border: 1px solid #9c9494;
+    border-radius: 5px;
+
+}
+
+
+th,
+td {
+
+    padding: 10px;
+    text-align: left;
+}

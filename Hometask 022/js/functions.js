@@ -1,4 +1,4 @@
-'use strickt';
+'use strict';
 
 function showCategories(cat) {
     const parentElement = document.getElementById('left');
@@ -45,10 +45,9 @@ function createCities() {
 
     const selectElem = document.createElement('select');
     selectElem.name = 'cities';
-    for (key in cities) {
+    for (let key in cities) {
         const option = document.createElement('option');
         option.value = key;
-        option.id = 'city';
         option.textContent = cities[key];
 
         selectElem.appendChild(option);
@@ -65,7 +64,7 @@ function createPostStores(value) {
     selectElem.name = 'posts';
     const noCityText = document.createElement('p');
 
-    for (key in posts) {
+    for (let key in posts) {
         if (value === key) {
             for (let i = 1; i <= posts[key]; i++) {
                 const option = document.createElement('option');
@@ -132,23 +131,62 @@ function showMessage(input, color, type, parentBlock) {
     return type;
 }
 
-function createOrderTable(inputObject, inputTable, cells) {
-    const tableKeys = createDataArray(inputObject, 1);
-    const userInput = createDataArray(inputObject);
-    const rowsNumber = tableKeys.length;
-    for (let i = 0; i < rowsNumber; i++) {
-        const row = inputTable.insertRow();
-        for (let j = 0; j < cells; j++) {
-            const cell = row.insertCell();
-            j % 2 != 0 ? cell.textContent = userInput[i] : cell.textContent = tableKeys[i];
-        };
-    };
+function ordersUpdate() {
+    ordersArray.map((order, index) => addingOrder(order, index + 1));
 }
 
-function createDataArray(inputObject, value) {
-    let arr = [];
-    for (i in inputObject) {
-        value? arr.push(inputObject[i][0].text): arr.push(inputObject[i][1].value);
+function addingOrder(order, index) {
+    const parent = document.getElementById('orders');
+    const orderBlock = document.createElement('div');
+    orderBlock.classList.add('order-info');
+    const item = document.createElement('div');
+    item.classList.add('hidden');
+    const table = createOrderTable(order);
+    const orderName = document.createElement('p');
+    orderName.classList.add('order-name');
+    orderName.textContent = `Order No${index}  |  ${order.date[1].tableValue}  |  ${order.finalPrice[1].tableValue}`;
+
+    const deleteBtn = document.createElement('button');
+    deleteBtn.setAttribute('type', 'button');
+    deleteBtn.textContent = 'Delete this order';
+    deleteBtn.classList.add('delete-button');
+    deleteBtn.setAttribute('order-index', index);
+    deleteBtn.addEventListener('click', () => {
+        ordersArray.splice(index - 1, 1);
+        localStorage.setItem('orders', JSON.stringify(ordersArray));
+        orderBlock.remove();
+        parent.innerHTML = '';
+        ordersUpdate();
+    })
+
+    parent.appendChild(orderBlock);
+    orderBlock.appendChild(orderName);
+    orderBlock.appendChild(item);
+    item.appendChild(table);
+    item.appendChild(deleteBtn);
+}
+
+function createOrderTable(orderObj) {
+    let tableKeys = [];
+    let tableValues = [];
+    for (let i in orderObj) {
+        tableKeys.push(orderObj[i][0].tableKey);
+        tableValues.push(orderObj[i][1].tableValue);
     };
-    return arr;
+
+    const table = document.createElement('table');
+    for (let i = 0; i < tableKeys.length; i++) {
+        const row = table.insertRow();
+        for (let j = 0; j < 2; j++) {
+            const cell = row.insertCell();
+            j % 2 != 0 ? cell.textContent = tableValues[i] : cell.textContent = tableKeys[i];
+        };
+    };
+    return table;
+}
+
+function getOrderDate() {
+    let date = new Date(), year = date.getFullYear(), month = date.getMonth() + 1, day = date.getDay() + 1, hour = date.getHours(), minutes = date.getMinutes();
+    let msg = `${day}.${month}.${year} ${hour}:${minutes}`;
+    return msg;
 }
