@@ -144,7 +144,7 @@ function addingOrder(order, index) {
     const table = createOrderTable(order);
     const orderName = document.createElement('p');
     orderName.classList.add('order-name');
-    orderName.textContent = `Order No${index}  |  ${order.date[1].tableValue}  |  ${order.finalPrice[1].tableValue}`;
+    orderName.textContent = `Order No${index}  |  ${order.date.tableValue}  |  ${order.finalPrice.tableValue}`;
 
     const deleteBtn = document.createElement('button');
     deleteBtn.setAttribute('type', 'button');
@@ -170,8 +170,8 @@ function createOrderTable(orderObj) {
     let tableKeys = [];
     let tableValues = [];
     for (let i in orderObj) {
-        tableKeys.push(orderObj[i][0].tableKey);
-        tableValues.push(orderObj[i][1].tableValue);
+        tableKeys.push(orderObj[i].tableKey);
+        tableValues.push(orderObj[i].tableValue);
     };
 
     const table = document.createElement('table');
@@ -186,7 +186,12 @@ function createOrderTable(orderObj) {
 }
 
 function getOrderDate() {
-    let date = new Date(), year = date.getFullYear(), month = date.getMonth() + 1, day = date.getDay() + 1, hour = date.getHours(), minutes = date.getMinutes();
+    let date = new Date();
+    let year = date.getFullYear(); 
+    let month = date.getMonth() + 1;
+    let day = date.getDay() + 1;
+    let hour = date.getHours();
+    let minutes = date.getMinutes();
     let msg = `${day}.${month}.${year} ${hour}:${minutes}`;
     return msg;
 }

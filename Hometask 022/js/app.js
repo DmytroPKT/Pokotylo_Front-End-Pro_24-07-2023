@@ -58,18 +58,54 @@ saveBtn.addEventListener("click", event => {
         const product = categories[cat].products.find(product => product.id == prodId);
 
         const userInputObj = {
-            productName: [{tableKey: 'Product:'}, {tableValue: product.name}],
-            quantity: [{tableKey: 'Quantity:'}, {tableValue: orderInput.qty.value}],
-            productPrice: [{tableKey: 'Product Price:'}, {tableValue: `${product.price}$`}],
-            finalPrice: [{tableKey: 'Final price:'}, {tableValue: `${product.price * orderInput.qty.value}$`}],
-            customerName: [{tableKey: 'Customer\'s Name:'}, {tableValue: orderInput.firstname.value}],
-            customerMidName: [{tableKey: 'Customer\'s Middle Name:'}, {tableValue: orderInput.middleName.value}],
-            customerFamName: [{tableKey: 'Customer\'s Family Name:'}, {tableValue: orderInput.familyName.value}],
-            customerCity: [{tableKey: 'Customer\'s City:'}, {tableValue: cities[orderInput.cities.value]}],
-            customerPost: [{tableKey: 'Nova Poshta Store No:'}, {tableValue: orderInput.posts.value}],
-            payment: [{tableKey: 'Payment:'}, {tableValue: orderInput.pay.value}],
-            comment: [{tableKey: 'Comment:'}, {tableValue: orderInput.comment.value}],
-            date: [{tableKey: 'Date:'}, {tableValue: getOrderDate()}],
+            productName: {
+                tableKey: 'Product:', 
+                tableValue: product.name,
+            },
+            quantity: {
+                tableKey: 'Quantity:', 
+                tableValue: orderInput.qty.value,
+            },
+            productPrice: {
+                tableKey: 'Product Price:',
+                tableValue: `${product.price}$`,
+            },
+            finalPrice: {
+                tableKey: 'Final price:',
+                tableValue: `${product.price * orderInput.qty.value}$`,
+            },
+            customerName: {
+                tableKey: 'Customer\'s Name:',
+                tableValue: orderInput.firstname.value,
+            },
+            customerMidName: {
+                tableKey: 'Customer\'s Middle Name:',
+                tableValue: orderInput.middleName.value,
+            },
+            customerFamName: {
+                tableKey: 'Customer\'s Family Name:',
+                tableValue: orderInput.familyName.value,
+            },
+            customerCity: {
+                tableKey: 'Customer\'s City:', 
+                tableValue: cities[orderInput.cities.value],
+            },
+            customerPost: {
+                tableKey: 'Nova Poshta Store No:',
+                tableValue: orderInput.posts.value,
+            },
+            payment: {
+                tableKey: 'Payment:',
+                tableValue: orderInput.pay.value,
+            },
+            comment: {
+                tableKey: 'Comment:',
+                tableValue: orderInput.comment.value,
+            },
+            date: {
+                tableKey: 'Date:', 
+                tableValue: getOrderDate(),
+            },
         };
         
         ordersArray.push(userInputObj);
