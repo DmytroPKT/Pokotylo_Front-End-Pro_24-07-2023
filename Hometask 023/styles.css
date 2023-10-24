@@ -1,0 +1,62 @@
+#users {
+    padding: 10px;
+}
+
+#users > div  {
+    display: flex;
+    margin: 5px;
+}
+.actions > input {
+    margin-right: 5px;
+}
+
+.editBtn {
+    color: red;
+}
+
+
+.view-string {
+    display: flex;
+    justify-content: center;
+}
+
+.view-string > div {
+    flex: 1;
+    max-width: 200px;
+    margin: 5px;
+}
+
+.view-string > input {
+    flex: 1;
+    max-width: 192px;
+    margin: 5px;
+}
+
+#form {
+    padding: 10px;
+}
+
+.user-data > div {
+    flex: 1;
+    max-width: 200px;
+}
+
+.edit-form {
+    display: flex;
+    gap: 73px;
+}
+
+.edit-form > input {
+    max-width: 120px;
+}
+
+.action-button {
+    max-width: 60px;
+    margin: auto;
+}
+
+#error-message {
+    text-align: center;
+    font-size: 20px;
+    color: red;
+}
